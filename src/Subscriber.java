@@ -1,6 +1,6 @@
 
 public interface Subscriber {
 
-    public void update();
+    public void update(String pub);
 
 }

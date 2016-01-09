@@ -2,12 +2,23 @@ import java.util.ArrayList;
 
 public class ConcretePublisher implements Publisher {
 
+    private String namePub;
     private ArrayList<Subscriber> subscribers;
 
-    public ConcretePublisher() {
+    public ConcretePublisher(String namePub) {
         subscribers = new ArrayList<>();
-
+        setNamePub(namePub);
     }
+
+    public String getNamePub() {
+        return namePub;
+    }
+
+    public void setNamePub(String namePub) {
+        this.namePub = namePub;
+    }
+
+
 
     @Override
     public void addSubscriber(Subscriber s) {
@@ -22,7 +33,7 @@ public class ConcretePublisher implements Publisher {
     @Override
     public void notifySubscriber() {
         for (Subscriber s : subscribers){
-            s.update();
+            s.update(namePub);
         }
     }
 }
